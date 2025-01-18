@@ -14,9 +14,10 @@ export default function SignInWithGoogle() {
       setLoading(true);
       setError(null);
       await signInWithGoogle();
-    } catch (err) {
+    } catch (err: any) {
       console.error('Sign in error:', err);
-      setError('Failed to sign in with Google. Please try again.');
+      // Use the specific error message if available
+      setError(err.message || 'Failed to sign in with Google. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -27,7 +28,8 @@ export default function SignInWithGoogle() {
       <button
         onClick={handleSignIn}
         disabled={loading}
-        className="flex items-center justify-center bg-white text-gray-700 font-semibold py-2 px-4 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex items-center justify-center bg-white text-gray-700 font-semibold py-2 px-4 rounded-full border border-gray-300 hover:bg-gray-100 transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed min-w-[200px]"
+        aria-label="Sign in with Google"
       >
         {loading ? (
           <div className="flex items-center">
@@ -54,7 +56,9 @@ export default function SignInWithGoogle() {
         )}
       </button>
       {error && (
-        <p className="text-red-500 text-sm mt-2">{error}</p>
+        <div className="text-red-500 text-sm mt-2 max-w-[300px] text-center bg-red-100/10 p-2 rounded-lg">
+          {error}
+        </div>
       )}
     </div>
   );
