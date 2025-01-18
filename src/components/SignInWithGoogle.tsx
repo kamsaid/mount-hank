@@ -15,8 +15,10 @@ export default function SignInWithGoogle() {
         <Image
           src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
           alt="Google logo"
-          fill
+          width={24}
+          height={24}
           className="object-contain"
+          unoptimized // Add this if you're having issues with the remote Google image
         />
       </div>
       Sign in with Google
