@@ -3,6 +3,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  browserPopupRedirectResolver,
 } from "firebase/auth";
 import {
   collection,
@@ -19,8 +20,12 @@ export const logoutUser = () => signOut(auth);
 
 export const signInWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({
+    prompt: 'select_account'
+  });
+  
   try {
-    const result = await signInWithPopup(auth, provider);
+    const result = await signInWithPopup(auth, provider, browserPopupRedirectResolver);
     return result.user;
   } catch (error) {
     console.error("Error signing in with Google", error);
