@@ -260,7 +260,7 @@ export default function Home() {
                           {Object.entries(MODELS[selectedModel].parameters).map(([key, value]) => (
                             <li key={key}>{key}: {value}</li>
                           ))}
-                          <li>Prompt: &ldquo;{prompt}&rdquo;</li>
+                          <li>Prompt: &quot;{prompt}&quot;</li>
                         </ul>
                       </div>
                     </div>
