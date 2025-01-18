@@ -70,13 +70,14 @@ export default function MyImages() {
                   <div className="flex flex-col md:flex-row gap-8">
                     {/* Image container - will maintain aspect ratio */}
                     <div className="w-full md:w-1/2">
-                      <div className="relative w-full h-[400px]">
+                      <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
                         <Image
                           src={image.imageUrl}
                           alt={image.prompt}
                           fill
                           className="object-contain"
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          unoptimized={true}
                         />
                       </div>
                     </div>

@@ -215,6 +215,8 @@ export default function Home() {
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  unoptimized={true}
                 />
               </div>
               
