@@ -20,6 +20,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
       },
+      {
+        protocol: 'https',
+        hostname: '*.replicate.delivery',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.gstatic.com',
+      },
     ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
